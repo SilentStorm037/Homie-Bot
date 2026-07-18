@@ -13,7 +13,7 @@ Homie is a verified, multi-server Discord bot designed to replace a collection o
 - **Server specific:** every community keeps its own settings, channels, roles, messages, and enabled features.
 - **Auditable:** moderation, dashboard changes, publishing, and administrative actions are recorded where supported.
 - **Privacy aware:** members can inspect or remove optional personal data with `/privacy`.
-- **Production ready:** durable scheduled jobs, SQLite persistence, health endpoints, backups, automated tests, and PM2 support are included.
+- **Reliable:** reminders, giveaways, scheduled messages, moderation expiries, and other timed actions continue through restarts.
 
 ## Feature overview
 
@@ -29,7 +29,7 @@ Homie is a verified, multi-server Discord bot designed to replace a collection o
 | Publishing | Plain messages, rich embeds, editing, scheduling, announcements, update posts, and audited delivery |
 | Entertainment | Shared voice music queues, repeat, shuffle, queue removal, volume controls, jokes, facts, compliments, roasts, coin flips, and 8-ball |
 | Smart replies | Server personality, reply modes, channel allowlists, cooldowns, custom taught replies, explicit memory, and member memory controls |
-| Platform | Responsive OAuth dashboard, scoped read-only API keys, audit history, health and metrics endpoints, privacy export/deletion, and localisation settings |
+| Platform | Responsive dashboard, scoped read-only API keys, audit history, privacy export/deletion, and localisation settings |
 
 The detailed platform breakdown is available in [Homie All-in-One Platform](docs/ALL_IN_ONE_PLATFORM.md).
 
@@ -41,10 +41,10 @@ The Homie dashboard provides a visual alternative to slash-command configuration
 - channel, role, welcome, moderation, security, and community settings;
 - ticket, suggestion, form, appeal, automation, feed, counter, poll, and role-panel management;
 - message and embed publishing, editing, and scheduling;
-- activity history, diagnostic data, scoped API credentials, and server health;
+- activity history, scoped API credentials, and server health;
 - unsaved-change warnings, page search, contextual help, dark/light themes, and reduced-motion support.
 
-Discord OAuth only shows servers where the signed-in user is the owner or has **Manage Server** or **Administrator**. See [Dashboard setup and deployment](dashboard/README.md).
+Discord sign-in only shows servers where the signed-in user is the owner or has **Manage Server** or **Administrator**. See the [Dashboard User Guide](dashboard/README.md).
 
 ## Add Homie to a server
 
@@ -135,70 +135,17 @@ Homie stores only the data needed for enabled features, including server configu
 
 Read the [Privacy Policy](docs/PRIVACY_POLICY.md) and [Terms of Service](docs/TERMS_OF_SERVICE.md) for the full public policy.
 
-## Self-hosting
-
-The public bot can be invited without self-hosting. Developers running their own authorised instance need:
-
-- Node.js 22.13 or newer;
-- a Discord application and bot token;
-- the required privileged gateway intents enabled in the Discord Developer Portal;
-- npm dependencies installed with `npm ci`;
-- writable local storage for SQLite and runtime data.
-
-Start here:
-
-```powershell
-Copy-Item .env.example .env
-npm ci
-npm run deploy
-npm test
-npm start
-```
-
-Never commit `.env`, bot tokens, OAuth client secrets, creator API secrets, dashboard tokens, databases, or runtime exports. See [Self-hosting and production operations](docs/SELF_HOSTING.md) for the complete Windows, PM2, dashboard, Cloudflare Tunnel, backup, and troubleshooting guide.
-
-## Project structure
-
-```text
-dashboard/       OAuth dashboard server and responsive web client
-moderation/      automod, raid protection, and moderation cases
-support/         tickets, modmail, invite tracking, and support stores
-community/       music, feeds, polls, utilities, and community jobs
-platform/        SQLite, durable jobs, auditing, privacy, API keys, and i18n
-stores/          feature-specific persistent stores
-utils/           cards, logging, changelogs, formatting, and deployment helpers
-scripts/         checks, backups, release, deployment, and maintenance scripts
-tests/           command, storage, moderation, support, community, music, and dashboard tests
-docs/            setup, commands, hosting, platform, privacy, and terms
-```
-
-## Development checks
-
-```powershell
-npm run check
-npm test
-npm audit --omit=dev --audit-level=high
-```
-
-The test suite covers command schema validity, storage transactions, durable jobs, moderation, automod, support workflows, community features, music queues, media extraction, dashboard authentication, settings validation, and release announcements.
-
 ## Documentation
 
 | Guide | Audience |
 | --- | --- |
 | [Public Server Setup Guide](docs/PUBLIC_SERVER_SETUP_GUIDE.md) | Discord server owners and administrators |
 | [Command Reference](docs/COMMAND_REFERENCE.md) | Members, moderators, and administrators |
-| [Dashboard Guide](dashboard/README.md) | Dashboard users and deployers |
-| [Self-hosting](docs/SELF_HOSTING.md) | Developers and production operators |
-| [All-in-One Platform](docs/ALL_IN_ONE_PLATFORM.md) | Feature and architecture overview |
-| [Automatic Discord Updates](docs/AUTOMATIC_DISCORD_UPDATES.md) | Maintainers publishing public releases |
+| [Dashboard User Guide](dashboard/README.md) | Server owners and administrators |
+| [All-in-One Platform](docs/ALL_IN_ONE_PLATFORM.md) | Complete feature overview |
 | [Privacy Policy](docs/PRIVACY_POLICY.md) | All users |
 | [Terms of Service](docs/TERMS_OF_SERVICE.md) | All users |
 
 ## Support
 
 For setup questions, troubleshooting, bug reports, or feature help, join the [Homie support server](https://discord.gg/RjuSrGXHSa).
-
-## License
-
-This repository is licensed under ISC as declared in `package.json`.

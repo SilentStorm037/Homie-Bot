@@ -1,187 +1,209 @@
-# Homie Dashboard
+# Homie Dashboard User Guide
 
-The Homie dashboard is a responsive web interface served by the bot process. It provides visual setup and everyday management for administrators who prefer forms, previews, and guided workflows over slash commands.
+The Homie dashboard gives server owners and administrators a visual way to set up and manage Homie without memorising commands. It works on desktop, tablet, and mobile browsers.
 
-## User experience
+## Signing in
 
-- Automatic desktop, tablet, and mobile layouts
-- Persistent mobile navigation and full slide-out menu
-- First-time guided setup
-- Contextual help and recommended next actions
-- Searchable navigation
-- Dark and light themes
-- Reduced-motion accessibility support
-- Unsaved-change indicators and navigation warnings
-- Responsive cards, tables, forms, emoji picker, message previews, and status feedback
+Open the official Homie dashboard link and choose **Continue with Discord**. After authorising access, Homie shows the servers where:
 
-## Dashboard sections
+- Homie is present; and
+- you own the server, have **Manage Server**, or have **Administrator**.
 
-| Section | What it manages |
+Select the server you want from **Managing server** in the navigation menu.
+
+If a server is missing, confirm you are signed into the correct Discord account and have the required permission in that server.
+
+## First visit
+
+The welcome tour explains the main workflow:
+
+1. Open **Get started**.
+2. Review Homie's permissions and setup health.
+3. Connect the channels and roles your features need.
+4. Configure protection before opening a new server publicly.
+5. Personalise welcome messages and community rewards.
+6. Add optional support, automation, and creator features.
+7. Return to **Home** to review anything unfinished.
+
+Every page includes a short explanation, practical tips, and a recommended next destination.
+
+## Navigation
+
+| Page | What it manages |
 | --- | --- |
 | Home | Server health, setup completion, activity, enabled modules, and shortcuts |
-| Get started | Permissions, guided server provisioning, and setup checklist |
-| Channels & roles | Feature destinations, managed roles, role creation, and core modules |
-| Protection | Automod, blocked content, spam limits, anti-raid behavior, and verification |
-| Welcome & rewards | Greetings, autoroles, starboard, levelling, achievements, birthdays, colours, and economy |
-| Smart replies | Reply modes, personality, cooldowns, channels, taught replies, and memory controls |
+| Get started | Permission checks, guided setup, and the recommended configuration order |
+| Channels & roles | Feature destinations, autoroles, managed roles, role creation, and core modules |
+| Protection | Automod, blocked content, spam limits, anti-raid behavior, quarantine, verification, and lockdown |
+| Welcome & rewards | Greetings, starboard, levelling, achievements, birthdays, colours, and economy |
+| Smart replies | Reply modes, personality, cooldowns, allowed channels, taught replies, and memory controls |
 | Connections | Twitch, TikTok, feeds, counters, and external content sources |
-| Advanced settings | Searchable access to the complete server configuration |
+| Advanced settings | Searchable access to detailed server configuration |
 | Member support | Tickets, modmail, suggestions, forms, and appeals |
-| Automation | Reaction roles, role panels, polls, sticky content, cleanup, voice hubs, and workflows |
+| Automation | Reaction roles, role panels, polls, cleanup, voice hubs, sticky content, and workflows |
 | Content library | Tags, custom replies, feedback, and reusable content |
-| Publish | Plain messages, Discord JSON, embeds, editing, and scheduling |
-| Activity log | Dashboard, moderation, and system activity |
-| Data & API | Runtime health, exports, diagnostics, privacy settings, and integration credentials |
+| Publish | Plain messages, embeds, message editing, and scheduling |
+| Activity log | Recent dashboard, moderation, and server activity |
+| Data & API | Data export, privacy settings, and integration credentials |
 
-## Local start
+## Desktop navigation
 
-Set at least a dashboard owner token:
+The full navigation is shown on the left. The top search field jumps directly to any dashboard page. The status indicator shows whether Homie is connected.
 
-```powershell
-$env:DASHBOARD_TOKEN="use-a-long-random-value"
-$env:DASHBOARD_HOST="127.0.0.1"
-$env:DASHBOARD_PORT="3000"
-npm start
-```
+Use the `?` button for help about the page currently open.
 
-Open:
+## Mobile navigation
 
-```text
-http://127.0.0.1:3000
-```
+The dashboard automatically switches to its mobile interface on phones and narrow screens.
 
-The dashboard starts and stops with the Discord bot because both are hosted by the same Node.js process.
+The bottom navigation provides quick access to:
 
-## Authentication
+- Home
+- Setup
+- Support
+- Tools
+- More
 
-### Discord OAuth
+Choose **More** or the menu button to open every dashboard section. Mobile controls use larger touch targets and account for the browser's visible viewport and safe areas.
 
-OAuth is the recommended login for server administrators. Set:
+## Saving changes
 
-```env
-CLIENT_ID=your_discord_application_id
-DISCORD_CLIENT_SECRET=your_discord_oauth_secret
-DASHBOARD_PUBLIC_URL=https://dashboard.example.com
-```
+Dashboard forms do not save automatically.
 
-Register the exact callback in Discord Developer Portal:
+1. Make the required changes.
+2. Review the values and selected Discord destinations.
+3. Select the page's **Save** button.
+4. Wait for the success notification.
 
-```text
-https://dashboard.example.com/auth/callback
-```
+An **Unsaved changes** marker appears after editing a form. Homie warns before you change pages, switch servers, close the tab, or refresh with unsaved work.
 
-OAuth requests the Discord `identify` and `guilds` scopes. A user only sees shared servers where they:
+## Channels and roles
 
-- own the server;
-- have **Manage Server**; or
-- have **Administrator**.
+Use **Channels & roles** to decide where Homie publishes each workflow and which roles it may manage.
 
-Dashboard sessions use an HTTP-only cookie, use `SameSite=Lax`, become Secure on HTTPS deployments, and expire after 12 hours.
+- Leaving a destination unconfigured keeps that workflow inactive.
+- Homie's Discord role must be above every role it assigns or manages.
+- Private staff logs should always use private staff channels.
+- Verify that Homie can View Channel, Send Messages, Embed Links, Attach Files, and Read Message History where needed.
 
-### Owner token
+The role inventory can also create safe decorative roles and remove roles Homie is allowed to manage.
 
-`DASHBOARD_TOKEN` is an emergency or local owner credential. The UI stores it in that browser and sends it as a bearer token. Generate a long random value and never share or commit it.
+## Protection
 
-### Integration API keys
+The Protection page combines message moderation and join security.
 
-`/apikey` creates revocable, read-only keys scoped to one Discord server and selected API permissions. Keys are displayed once.
+Message controls include:
 
-## Production deployment
+- blocked words and phrases;
+- spam and duplicate-message limits;
+- mention and capital-letter limits;
+- invite, link, and domain filtering;
+- emoji, new-line, and attachment limits;
+- ignored channels and roles;
+- deletion, warning, or timeout responses.
 
-Keep the dashboard bound locally:
+Join controls include anti-raid thresholds, account-age checks, quarantine, verification roles, and emergency lockdown. Test protection settings with staff before enabling strict actions in a busy server.
 
-```env
-DASHBOARD_HOST=127.0.0.1
-DASHBOARD_PORT=3000
-```
+## Welcome and rewards
 
-Place a trusted HTTPS reverse proxy or Cloudflare Tunnel in front of it. For Cloudflare Tunnel:
+Configure:
 
-1. Create a tunnel in Cloudflare.
-2. Install the supplied Cloudflared service command on the production computer.
-3. Create a Published application route such as `dashboard.example.com`.
-4. Point its service URL to `http://127.0.0.1:3000`.
-5. Set `DASHBOARD_PUBLIC_URL=https://dashboard.example.com`.
-6. Add `https://dashboard.example.com/auth/callback` to Discord OAuth redirects.
-7. Restart Homie with updated environment variables.
+- welcome and leave messages;
+- welcome images and random messages;
+- autoroles;
+- starboard destination, threshold, and allowed emojis;
+- XP ranges, cooldowns, rewards, exclusions, and multipliers;
+- achievement announcements;
+- birthdays and age visibility;
+- colour-role settings;
+- optional community currency.
 
-Do not expose port 3000 directly, bind it to every network interface, or use plain public HTTP. The full walkthrough is in [Self-hosting and Production Operations](../docs/SELF_HOSTING.md).
+Message templates support the placeholders described in the [Public Server Setup Guide](../docs/PUBLIC_SERVER_SETUP_GUIDE.md).
 
-## Security model
+## Member support
 
-Dashboard protections include:
+The support workspace manages tickets, suggestions, forms, appeals, and modmail.
 
-- OAuth server filtering based on Discord permissions;
-- optional owner bearer-token authentication;
-- request rate limiting;
-- JSON content-type enforcement for writes;
-- same-origin validation for state-changing browser requests;
-- prototype-key rejection during settings merges;
-- server-side type, range, and relationship validation;
-- Discord permission and role-hierarchy validation;
-- suppression of unexpected mentions in published content;
-- activity auditing for configuration, moderation, resource, and publishing changes;
-- read-only, scoped integration credentials.
+For tickets, select a Discord **category** for new ticket channels, a private log channel, and one or more staff roles. After saving, publish a ticket panel where members can reach it.
 
-The browser interface is not treated as a security boundary. Every important write is validated again by the server.
+Review the privacy of every destination before publishing a support workflow.
 
-## Endpoints
+## Automation
 
-| Endpoint | Access | Description |
-| --- | --- | --- |
-| `GET /` | Public shell | Loads the dashboard login and application client. |
-| `GET /auth/discord` | Public | Starts Discord OAuth. |
-| `GET /auth/callback` | Public | Validates OAuth state and creates a session. |
-| `GET /auth/logout` | Public | Clears the active dashboard session. |
-| `GET /healthz` | Public | Reports basic service and Discord readiness. |
-| `GET /metrics` | Authenticated | Returns dashboard operational metrics. |
-| `/api/bootstrap` | Authenticated | Returns the bot identity and manageable servers. |
-| `/api/guilds/:id` | Authenticated | Returns the selected server's dashboard model. |
-| `/api/guilds/:id/settings` | Authenticated | Validates and updates server settings. |
-| `/api/guilds/:id/community` | Authenticated | Validates and updates community data. |
-| `/api/v1/guilds/:id/stats` | Scoped key | Read-only integration statistics. |
-| `/api/v1/guilds/:id/audit` | Scoped key | Read-only integration audit information. |
+The Automation workspace manages:
 
-Additional authenticated resource endpoints power tickets, suggestions, forms, appeals, feeds, automations, counters, voice hubs, polls, scheduled messages, sticky messages, role panels, moderation actions, publishing, and API-key management.
+- reaction-role messages and emoji bindings;
+- button-based role menus;
+- interactive polls;
+- automatic cleanup rules;
+- temporary voice hubs;
+- sticky content;
+- trigger-and-action workflows.
 
-## Operational checks
+Reaction-role messages can use an existing Discord message, plain text created by Homie, or supported Discord JSON. Homie adds the configured reactions and can update the emoji bindings afterward.
 
-```powershell
-npm run check
-npm test
-npm audit --omit=dev --audit-level=high
-```
+## Publishing
 
-Dashboard tests cover authentication, safe settings merging, origin and content-type write policy, settings validation, reaction-role publishing, emoji data, mobile layout support, and required accessibility/UX elements.
+The publishing workspace can send plain messages, build embeds, edit managed messages, and schedule future content.
 
-## Troubleshooting
+Always verify:
 
-### Login says Discord OAuth is not configured
+- the destination channel;
+- message and embed text;
+- images and links;
+- schedule date and timezone;
+- whether any mention is genuinely intended.
 
-Set `CLIENT_ID`, `DISCORD_CLIENT_SECRET`, and `DASHBOARD_PUBLIC_URL`, then restart Homie.
+Homie suppresses unexpected mention expansion for safer dashboard publishing.
 
-### Discord says redirect URI is invalid
+## Activity and data
 
-The redirect saved in the Developer Portal must exactly match:
+The Activity log helps administrators understand what changed and when. Filter entries by action, user, or feature and open an entry for additional context.
 
-```text
-<DASHBOARD_PUBLIC_URL>/auth/callback
-```
+Data & API provides user-facing exports, privacy controls, and scoped integration credentials. API secrets are shown once; store them safely and revoke any key that is no longer needed.
 
-Check protocol, hostname, subdomain, path, and trailing slash.
+## Themes and accessibility
 
-### Public URL returns a Cloudflare error
+Use the theme button to switch between dark and light appearance. The dashboard follows reduced-motion preferences and removes non-essential animation when the browser requests it.
 
-Confirm the tunnel is connected and its service URL is `http://127.0.0.1:3000`. Test `/healthz` locally first.
+Keyboard shortcuts on desktop:
 
-### A server is missing after login
+| Key | Action |
+| --- | --- |
+| `/` | Focus page search |
+| `?` | Open contextual help |
+| `Esc` | Close search results, menus, emoji picker, or help |
 
-The signed-in Discord account must share the server with Homie and own it or have Manage Server/Administrator.
+## Common problems
+
+### A server is missing
+
+Sign into the correct Discord account and confirm you own the server or have Manage Server/Administrator. Homie must also be present in that server.
 
 ### A setting will not save
 
-Read the displayed validation error, confirm Homie's Discord permissions and role position, and ensure referenced channels or roles still exist.
+Read the displayed validation message. Confirm the selected channel or role still exists and that Homie has the required Discord permission.
 
-### Mobile layout does not appear
+### Homie cannot assign a role
 
-Reload the page after clearing an unusually aggressive browser cache. Layout selection responds to mobile browser information, viewport width, orientation, and the visible mobile viewport.
+Move Homie's highest role above the target role in Discord Server Settings.
+
+### A feature saves but does not post
+
+Check that the feature is enabled, its destination is configured, and Homie can view and send messages in that channel. Use `/setup` and `/config view` for a second check.
+
+### Discord login expires
+
+Sign in again. Dashboard sessions expire automatically for account security.
+
+### The mobile interface looks outdated
+
+Refresh the page and reopen it in the current browser. The dashboard selects its layout using the device and current screen width.
+
+## More help
+
+- [Public Server Setup Guide](../docs/PUBLIC_SERVER_SETUP_GUIDE.md)
+- [Command Reference](../docs/COMMAND_REFERENCE.md)
+- [Privacy Policy](../docs/PRIVACY_POLICY.md)
+- [Terms of Service](../docs/TERMS_OF_SERVICE.md)
+- [Homie support server](https://discord.gg/RjuSrGXHSa)

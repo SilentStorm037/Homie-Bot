@@ -24,102 +24,23 @@ Recommended first setup order:
 10. Configure optional community features.
 11. Run test commands before announcing features publicly.
 
-## Server Templates For Empty Servers
+## Guided Dashboard Setup
 
-Homie can build a new empty Discord server from a ready-made template. This is useful when you add Homie to a blank server and want a working community structure without creating every channel, role, permission, and feature setup by hand.
+The dashboard is the quickest way to configure a new server without memorising commands. Its **Get started** page checks permissions, explains the recommended order, and provides safe server-structure presets where available.
 
-Templates can create and configure:
+Recommended dashboard workflow:
 
-- main categories and channels
-- read-only areas such as welcome, rules, announcements, and updates
-- community chat and engagement channels
-- game reaction roles with popular games
-- a `Verified` join role
-- inactivity roles for 7-day and 30-day workflows
-- a `Safe` role that can be used by staff when needed
-- private staff areas
-- welcome, leave, and server log channels
-- mod log, announcement, update, starboard, achievement, birthday, and vent channels
-- starboard with the crown reaction
-- XP levelling
-- achievements and achievement announcements
-- birthday celebrations
-- anonymous venting
-- smart replies set to local AI, friendly personality, memory enabled, and natural learning enabled
-- sticky helper messages only in channels where a command needs explanation
-- game reaction-role bindings in the roles channel
-- starter messages so the server is not left empty after setup
+1. Sign in with Discord.
+2. Select the server from the server switcher.
+3. Open **Get started** and review the permission check.
+4. Use **Channels & roles** to connect destinations and managed roles.
+5. Configure **Protection** before opening the server to new members.
+6. Personalise **Welcome & rewards**.
+7. Add optional **Member support**, **Connections**, and **Automation** tools.
+8. Return to **Home** and review setup health.
+9. Run `/setup` and `/config view` in Discord as a final check.
 
-Live notification channels for Twitch and TikTok are not automatically configured by templates. Those should be set manually if the server wants live alerts.
-
-### Template Variants
-
-Choose the variant that best matches the server you want to build:
-
-- `community` - best for a general community server with chat, announcements, roles, achievements, birthdays, venting, polls, giveaways, and moderation spaces.
-- `gaming` - best for a gaming server with popular game roles, game chat, events, polls, giveaways, achievements, XP, and activity-focused channels.
-- `creator` - best for a creator-led community with announcement spaces, creator chat, updates, engagement channels, achievements, XP, and community tools.
-
-### How To Apply A Template
-
-Template commands are normal message commands, not slash commands. You type them into Discord as a message. Homie removes the trigger message when it can and sends the result privately.
-
-Replace `<variant>` with `community`, `gaming`, or `creator`.
-Replace `<serverId>` with the Discord server ID.
-
-Preview a template before applying it:
-
-```text
-server template tailored by homie preview <variant> <serverId>
-```
-
-Example:
-
-```text
-server template tailored by homie preview community 123456789012345678
-```
-
-Apply a template:
-
-```text
-server template tailored by homie apply <variant> <serverId>
-```
-
-Example:
-
-```text
-server template tailored by homie apply gaming 123456789012345678
-```
-
-Clear a previously applied template so the server can be rebuilt from scratch:
-
-```text
-server template tailored by homie scratch <variant> <serverId>
-```
-
-Example:
-
-```text
-server template tailored by homie scratch creator 123456789012345678
-```
-
-Use `scratch` carefully. It is intended for empty or newly built servers where you want to remove the template-created structure and start again.
-
-### Before Applying A Template
-
-Before using a template:
-
-1. Add Homie to the target server.
-2. Make sure Homie has Manage Channels, Manage Roles, View Channels, Send Messages, Embed Links, Attach Files, Read Message History, Add Reactions, Manage Messages, and Use Slash Commands.
-3. Move Homie's role high enough in the role hierarchy.
-4. Make sure the target server ID is correct.
-5. Run the `preview` command first.
-6. Apply the chosen template.
-7. Run `/setup` inside the server.
-8. Run `/config view` inside the server.
-9. Test the key channels and commands before inviting members.
-
-If Homie says it cannot create, move, or manage something, the most common reason is role hierarchy. Move Homie's role higher, then run the template command again.
+The dashboard never bypasses Discord permissions or role hierarchy. Homie's role must still be above every role it creates or assigns.
 
 ## Required Bot Permissions
 
@@ -182,6 +103,7 @@ Useful first commands:
 /serverconfig leave-channel channel:#goodbye
 /serverconfig server-log-channel channel:#server-logs
 /serverconfig autorole role:@Member
+/serverconfig lock-role role:@Member
 ```
 
 Clear a setting:
@@ -720,7 +642,7 @@ Test celebration:
 
 ## Starboard
 
-Starboard saves memorable messages when enough users react with the configured emoji.
+Starboard saves memorable messages when enough users react with the configured emoji set.
 
 Set starboard channel:
 
@@ -731,10 +653,16 @@ Set starboard channel:
 Enable starboard:
 
 ```text
-/serverconfig starboard enabled:true threshold:10 emoji:👑
+/serverconfig starboard enabled:true threshold:10 emojis:👑 ⭐ 🔥
 ```
 
-When a message gets the threshold number of matching reactions, Homie posts it to the starboard channel.
+When a message gets the threshold number of matching reactions, Homie posts it to the starboard channel. If multiple emojis are configured, Homie counts the combined total across all allowed emojis.
+
+View the current starboard emoji set:
+
+```text
+/serverconfig starboard-emojis
+```
 
 ## Smart Replies
 
@@ -1024,6 +952,10 @@ Mod tools:
 /modtools unlock channel:#chat
 ```
 
+`/modtools lock` denies `Send Messages` for the configured channel lock role. Set it with `/serverconfig lock-role`, usually to your verified/member role. If no lock role is set, Homie falls back to the autorole, then `@everyone`.
+
+`/modtools unlock` restores the saved permission snapshot from the last Homie lock, returning the channel to its previous role overwrite setup.
+
 Moderator notes:
 
 ```text
@@ -1168,6 +1100,55 @@ Ping:
 /ping
 ```
 
+## Support And Operations Setup
+
+After the core community is working, configure any operational tools your staff needs.
+
+### Tickets
+
+Run `/ticket setup` with:
+
+- a Discord **category** where Homie creates private ticket channels;
+- a text channel for ticket logs and transcripts; and
+- the staff role that should see and claim tickets.
+
+Then publish a member-facing panel with `/ticket panel`. Staff can claim, add participants, remove participants, close, and list tickets through `/ticket` or the dashboard.
+
+### Suggestions, Forms, Appeals, And Modmail
+
+- `/suggestion channel` selects the suggestion destination.
+- `/form create` defines an application or questionnaire; `/form panel` publishes access.
+- `/appeal submit` opens the member appeal workflow and `/appeal review` supports staff decisions.
+- `/modmail setup` connects private member DMs to a staff workflow.
+
+Configure private staff destinations before publishing panels to members.
+
+### Publishing And Scheduled Content
+
+Use `/message send`, `/message edit`, and `/message schedule` for managed content. The dashboard provides plain-text, embed, and Discord JSON editors with previews. Homie suppresses unexpected mentions and records dashboard publishing activity.
+
+### Automations, Feeds, Cleanup, And Counters
+
+- `/automation create` builds a trigger-and-action workflow.
+- `/feed add` subscribes a channel to a compatible RSS or Atom source.
+- `/cleanup set` removes channel messages after a configured delay.
+- `/counter setup` creates a live member or server-stat channel.
+- `/voicehub setup` creates temporary voice rooms when members join a configured hub.
+
+Start with one workflow at a time, test it in a staff channel, then use each command's `list` subcommand to confirm the saved configuration.
+
+### Economy And Music
+
+The optional economy provides balances, daily rewards, transfers, leaderboards, and audited staff adjustments through `/economy`.
+
+The shared music player uses `/music play` to queue searches, URLs, and supported YouTube playlists. Members can inspect the queue, remove a song by position, pause, resume, skip, shuffle, repeat one/all, set volume, or stop playback. Homie needs **Connect** and **Speak** in the voice channel.
+
+### Privacy And Integrations
+
+Members can use `/privacy export`, `/privacy delete`, and `/privacy retention`. Administrators can create read-only, single-server integration credentials with `/apikey`; each secret is displayed only once and can be revoked.
+
+The full list of operational commands and subcommands is maintained in the [Command Reference](COMMAND_REFERENCE.md).
+
 ## Public Server Setup Checklist
 
 Use this checklist after adding Homie:
@@ -1188,6 +1169,7 @@ Use this checklist after adding Homie:
    /serverconfig leave-channel channel:#goodbye
 9. Set autorole if needed:
    /serverconfig autorole role:@Member
+   /serverconfig lock-role role:@Member
 10. Set achievements channel:
    /achievementconfig channel channel:#achievements
 11. Enable achievements:
@@ -1204,7 +1186,7 @@ Use this checklist after adding Homie:
    /serverconfig leveling enabled:true
 17. Set starboard:
    /serverconfig starboard-channel channel:#starboard
-   /serverconfig starboard enabled:true threshold:10 emoji:👑
+   /serverconfig starboard enabled:true threshold:10 emojis:👑 ⭐ 🔥
 18. Set vent channel:
    /ventconfig channel channel:#anonymous-vent
 19. Set birthday channel:

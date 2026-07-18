@@ -1,6 +1,6 @@
 # Homie Bot Privacy Policy
 
-Last updated: 5 July 2026
+Last updated: 17 July 2026
 
 This Privacy Policy explains what data Homie may collect, store, and use when the bot is added to a Discord server or when users interact with Homie commands.
 
@@ -33,6 +33,7 @@ Homie may process Discord data that is needed for enabled features, including:
 - reaction role bindings
 - Twitch/TikTok usernames linked by users or admins
 - configured welcome, leave, live alert, and notification messages
+- ticket, modmail, form, suggestion, appeal, poll, economy, AFK, highlight, feed, and automation data when those features are used
 
 Homie only stores data needed to provide bot functionality.
 
@@ -132,6 +133,8 @@ Examples:
 - Twitch links can be removed with `/twitchunlink`
 - TikTok links can be removed with `/tiktokunlink`
 - reminders can be cancelled with `/remind cancel`
+- users can download their server-specific data with `/privacy export`
+- users can delete optional stored data with `/privacy delete confirm:DELETE`; moderation-integrity records are pseudonymized and stripped of stored evidence/transcript content
 
 ## 8. Data Removal Requests
 

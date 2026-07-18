@@ -893,6 +893,14 @@ Set limits:
 /automod limits mentions:5 caps_percent:80
 ```
 
+Send members a private warning notice when the Automod punishment is set to **Warn**:
+
+```text
+/automod filters warning_dms:true
+```
+
+The notice uses the same server, reason, moderator, and appeal-contact format as `/warn`. If a member has disabled DMs, Homie still deletes the message, records the warning, creates the moderation case, and logs the incident.
+
 ## Moderation
 
 Clear messages:

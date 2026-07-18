@@ -45,7 +45,7 @@ Commands marked **Admin** require elevated Discord permissions. Commands marked 
 
 | Command | Access | Purpose and subcommands |
 | --- | --- | --- |
-| `/automod` | Admin | `status`, `toggle`, `blockword`, `unblockword`, `limits`, `filters`, `domain`, `ignore-channel`, `ignore-role` — controls message filters, spam limits, domains, and exclusions. |
+| `/automod` | Admin | `status`, `toggle`, `blockword`, `unblockword`, `limits`, `filters`, `domain`, `ignore-channel`, `ignore-role` — controls message filters, spam limits, warning DMs, domains, and exclusions. |
 | `/security` | Admin | `status`, `anti-raid`, `roles`, `verification`, `lockdown` — configures join-rate monitoring, minimum account age, quarantine, verification, and emergency lockdown. |
 | `/verify` | Everyone | Completes Homie's configured server verification flow. |
 

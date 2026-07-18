@@ -135,6 +135,8 @@ Message controls include:
 - ignored channels and roles;
 - deletion, warning, or timeout responses.
 
+When the punishment is **Warn**, **DM Automod warnings** can send the member the same private notice used by `/warn`, including the server, reason, moderator, and appeal contact. Closed DMs never prevent the warning, case, deletion, or moderation log from completing.
+
 Join controls include anti-raid thresholds, account-age checks, quarantine, verification roles, and emergency lockdown. Test protection settings with staff before enabling strict actions in a busy server.
 
 ## Welcome and rewards

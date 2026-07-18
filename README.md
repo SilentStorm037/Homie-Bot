@@ -4,7 +4,7 @@
 
 Homie is a verified, multi-server Discord bot designed to replace a collection of separate moderation and community bots. Server owners can configure it with slash commands or through a responsive web dashboard, while members get consistent commands and self-service tools.
 
-[Add Homie to Discord](https://discord.com/oauth2/authorize?client_id=1492673658567524353&permissions=8&integration_type=0&scope=bot+applications.commands) · [Join the support server](https://discord.gg/RjuSrGXHSa) · [Setup guide](docs/PUBLIC_SERVER_SETUP_GUIDE.md) · [Command reference](docs/COMMAND_REFERENCE.md)
+[Add Homie to Discord](https://discord.com/oauth2/authorize?client_id=1492673658567524353&permissions=8&integration_type=0&scope=bot+applications.commands) · [Join the support server](https://discord.gg/RjuSrGXHSa) · [Setup guide](docs/PUBLIC_SERVER_SETUP_GUIDE.md) · [Setup checklist guide](docs/SETUP_COMPLETION_CHECKLIST.md) · [Command reference](docs/COMMAND_REFERENCE.md)
 
 ## Why Homie
 
@@ -140,6 +140,7 @@ Read the [Privacy Policy](docs/PRIVACY_POLICY.md) and [Terms of Service](docs/TE
 | Guide | Audience |
 | --- | --- |
 | [Public Server Setup Guide](docs/PUBLIC_SERVER_SETUP_GUIDE.md) | Discord server owners and administrators |
+| [Setup Completion Checklist Guide](docs/SETUP_COMPLETION_CHECKLIST.md) | Explains the dashboard percentage and optional checklist items |
 | [Command Reference](docs/COMMAND_REFERENCE.md) | Members, moderators, and administrators |
 | [Dashboard User Guide](dashboard/README.md) | Server owners and administrators |
 | [All-in-One Platform](docs/ALL_IN_ONE_PLATFORM.md) | Complete feature overview |

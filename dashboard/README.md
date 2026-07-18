@@ -11,7 +11,9 @@ Open the official Homie dashboard link and choose **Continue with Discord**. Aft
 
 Select the server you want from **Managing server** in the navigation menu.
 
-If a server is missing, confirm you are signed into the correct Discord account and have the required permission in that server.
+If Homie is not in any server you manage, the dashboard displays **Add Homie to a server**. Select it, choose a server in Discord, review the requested access, and approve the installation. The dashboard returns automatically, waits for Discord to finish connecting the server, and opens it ready for setup.
+
+If a server is still missing, select **I already added Homie** to refresh the list. Also confirm you are signed into the correct Discord account and have the required permission in that server.
 
 ## First visit
 
@@ -26,6 +28,29 @@ The welcome tour explains the main workflow:
 7. Return to **Home** to review anything unfinished.
 
 Every page includes a short explanation, practical tips, and a recommended next destination.
+
+## One-click server blueprints
+
+On **Get started**, choose a blueprint when you want Homie to build a new or mostly empty server for you:
+
+- **Essential launch** creates Homie's core channels, a sticky colour picker, permissionless colour roles, a general voice lounge, an AFK room, logs, and grouped managed roles.
+- **Community server** creates onboarding, a sticky colour picker, permissionless colour roles, social, engagement, staff, and reward areas alongside general, chill, music, and AFK voice rooms.
+- **Gaming community** adds a sticky colour picker, permissionless colour and interest roles, game discussion, looking-for-game, clips, game-night areas, squad rooms, and gaming voice lounges.
+- **Creator community** adds a sticky colour picker, permissionless colour and interest roles, creator chat, promotion, collaborations, streams, resources, and dedicated creator, collaboration, recording, community, and AFK voice rooms.
+
+The complete palette shown by `/colour list` is available immediately, while each permissionless Discord colour role is created safely only when a member first selects it. This keeps setup fast without reducing the available palette or filling the server with unused roles. Colour roles sit immediately below Homie's highest role and above the grouped Team, Staff, Member, and Interest roles so a selected colour remains visible. Colour and divider roles carry no permissions, and all of them are included in the tracked blueprint erase workflow.
+
+After confirmation, Homie creates and tracks the blueprint's categories, channels, roles, starter messages, reaction roles, sticky guidance, and feature connections for the selected server. The work continues safely in the background while the dashboard follows its live status, so large templates are not interrupted by normal web-request time limits. Existing server resources are left untouched so the blueprint can be removed safely later. Members, conversations, moderation history, and private data are never copied from another Discord server.
+
+Blueprints leave smart replies and memory disabled so the server owner can review and opt into those features separately.
+
+### Erasing and rebuilding
+
+After a blueprint is applied, **Get started** shows a tracked blueprint summary and disables the other blueprint buttons. Select **Erase this blueprint**, then type `ERASE` when prompted.
+
+Homie removes the channels, categories, roles, starter messages, reaction bindings, and stickies recorded in that blueprint's manifest, then restores the settings that existed immediately before it was applied. Resources that existed before the blueprint and unrelated settings changed later are preserved. After erasing, the server can use any blueprint again.
+
+If Discord interrupts setup or removal, the tracked blueprint remains available with an incomplete status. Correct Homie's channel or role permissions and run **Erase this blueprint** again to finish returning to the pre-blueprint state.
 
 ## Navigation
 
@@ -45,6 +70,14 @@ Every page includes a short explanation, practical tips, and a recommended next 
 | Publish | Plain messages, embeds, message editing, and scheduling |
 | Activity log | Recent dashboard, moderation, and server activity |
 | Data & API | Data export, privacy settings, and integration credentials |
+
+## Setup completion checklist
+
+The checklist on **Home** and **Get started** shows which channel destinations and feature switches are configured. It is a setup guide, not a requirement or bot-health score. Your server does **not** need to reach 100%.
+
+Configure the features that are useful for your server and leave unused systems as **Not configured**. For example, Forms and Modmail can remain unused when the server does not need applications or private member-to-staff conversations. Missing items appear first, completed items are marked **Done**, and **Set up** buttons open the relevant dashboard page.
+
+Channel destinations account for 62% of the displayed score and feature activation accounts for 38%. See the [Setup Completion Checklist Guide](../docs/SETUP_COMPLETION_CHECKLIST.md) for every checklist item, privacy recommendations, scoring details, and troubleshooting.
 
 ## Desktop navigation
 

@@ -42,6 +42,12 @@ Recommended dashboard workflow:
 
 The dashboard never bypasses Discord permissions or role hierarchy. Homie's role must still be above every role it creates or assigns.
 
+### Understanding Setup Completion
+
+The **Home** and **Get started** pages display a Setup Completion checklist showing configured channel destinations and active features. This checklist is a guide to what has and has not been configured; it is not a requirement to reach 100%.
+
+A server should configure only the features that are useful for its community. Optional destinations such as Forms, Modmail, creator alerts, appeals, or tickets may remain unconfigured without preventing other Homie features from working. The full scoring explanation, list of all checklist items, recommended workflow, and troubleshooting guidance are available in the [Setup Completion Checklist Guide](SETUP_COMPLETION_CHECKLIST.md).
+
 ## Required Bot Permissions
 
 Homie works best with:

@@ -95,7 +95,7 @@ Configures general community features:
 
 - welcome channel
 - leave channel
-- server log channel
+- server log channel and dedicated log channels
 - starboard channel
 - autorole
 - welcome messages
@@ -107,10 +107,35 @@ Useful first commands:
 ```text
 /serverconfig welcome-channel channel:#welcome
 /serverconfig leave-channel channel:#goodbye
+/serverconfig setup-log-channels
 /serverconfig server-log-channel channel:#server-logs
 /serverconfig autorole role:@Member
 /serverconfig lock-role role:@Member
 ```
+
+### Quick log channel setup
+
+Server owners and administrators can create all Homie log channels in one command:
+
+```text
+/serverconfig setup-log-channels
+```
+
+Homie creates or reuses a private `HOMIE LOGS` category, then creates or reuses these channels and saves the matching log routes automatically:
+
+- `#user-logs` for member joins, leaves, roles, nicknames, and profile changes
+- `#mod-logs` for warnings, timeouts, bans, kicks, moderation cases, and Automod actions
+- `#messages-logs` for deleted, edited, and bulk-deleted messages
+- `#server-logs` for role, channel, invite, and server changes
+- `#voice-logs` for voice joins, leaves, and moves
+
+You can also choose a custom category name:
+
+```text
+/serverconfig setup-log-channels category_name:Staff Logs
+```
+
+Homie needs **Manage Channels** to create or move the channels. After running the command, review the category permissions so only the right staff roles can view private logs.
 
 Clear a setting:
 
@@ -1171,10 +1196,9 @@ Use this checklist after adding Homie:
 1. Move Homie's role high enough.
 2. Run /setup.
 3. Run /config view.
-4. Set mod log:
-   /config set-mod-log-channel channel:#mod-logs
-5. Set server log:
-   /serverconfig server-log-channel channel:#server-logs
+4. Create and route Homie log channels:
+   /serverconfig setup-log-channels
+5. Review the HOMIE LOGS category permissions for staff-only access.
 6. Set welcome channel:
    /serverconfig welcome-channel channel:#welcome
 7. Enable welcome:

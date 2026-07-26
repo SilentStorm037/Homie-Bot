@@ -12,7 +12,7 @@ Commands marked **Admin** require elevated Discord permissions. Commands marked 
 | `/ping` | Everyone | Checks whether Homie is online and responding. |
 | `/setup` | Admin | Audits permissions and highlights missing configuration. |
 | `/config` | Admin | Views configuration and routes Twitch, TikTok, greetings, announcements, updates, moderation logs, games, and inactivity roles. Use `view` for the complete overview. |
-| `/serverconfig` | Admin | Configures welcome/leave/log/starboard channels, autoroles, branding, lock role, welcome behavior, starboard emojis and threshold, and levelling. |
+| `/serverconfig` | Admin | Configures welcome/leave/log/starboard channels, autoroles, branding, lock role, welcome behavior, starboard emojis and threshold, and levelling. Use `setup-log-channels` to create or reuse a private `HOMIE LOGS` category with `#user-logs`, `#mod-logs`, `#messages-logs`, `#server-logs`, and `#voice-logs`, then route each log type automatically. |
 | `/language` | Admin | `set`, `status` — selects the language used for supported server responses. |
 | `/stats` | Everyone | Displays server health and activity statistics. |
 

@@ -63,6 +63,18 @@ Channel destinations tell Homie where a particular type of message or workflow b
 | Appeals | Moderation appeal submissions | Yes; keep private |
 | Modmail | Private member-to-staff modmail conversations | Yes; keep private |
 
+### Quick log setup
+
+Server owners and administrators can run `/serverconfig setup-log-channels` to create or reuse a private `HOMIE LOGS` category and automatically route Homie's five dedicated log destinations:
+
+- `#user-logs`
+- `#mod-logs`
+- `#messages-logs`
+- `#server-logs`
+- `#voice-logs`
+
+Use `/serverconfig setup-log-channels category_name:Staff Logs` when the server needs a custom category name. Homie needs **Manage Channels**, and staff should review category permissions after the command finishes.
+
 ### Forms
 
 Forms are structured questionnaires created through Homie. They can be used for staff applications, partnerships, event registration, verification, feedback, or other organised submissions. The connected Forms channel receives completed submissions for review.

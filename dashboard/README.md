@@ -77,7 +77,7 @@ The checklist on **Home** and **Get started** shows which channel destinations a
 
 Configure the features that are useful for your server and leave unused systems as **Not configured**. For example, Forms and Modmail can remain unused when the server does not need applications or private member-to-staff conversations. Missing items appear first, completed items are marked **Done**, and **Set up** buttons open the relevant dashboard page.
 
-Channel destinations account for 62% of the displayed score and feature activation accounts for 38%. See the [Setup Completion Checklist Guide](../docs/SETUP_COMPLETION_CHECKLIST.md) for every checklist item, privacy recommendations, scoring details, and troubleshooting.
+Channel destinations make up most of the displayed setup score, and feature activation makes up the remaining score. See the [Setup Completion Checklist Guide](../docs/SETUP_COMPLETION_CHECKLIST.md) for every checklist item, privacy recommendations, scoring details, and troubleshooting.
 
 ## Desktop navigation
 
@@ -121,6 +121,8 @@ Use **Channels & roles** to decide where Homie publishes each workflow and which
 
 The role inventory can also create safe decorative roles and remove roles Homie is allowed to manage.
 
+Configured server-log destinations receive timestamped, colour-coded embeds for member, role, channel, message, voice, invite, and ban activity. The embeds include the affected target, channel, and audit-log actor when those details are available, while suppressing notification pings.
+
 ## Protection
 
 The Protection page combines message moderation and join security.
@@ -136,6 +138,21 @@ Message controls include:
 - deletion, warning, or timeout responses.
 
 When the punishment is **Warn**, **DM Automod warnings** can send the member the same private notice used by `/warn`, including the server, reason, moderator, and appeal contact. Closed DMs never prevent the warning, case, deletion, or moderation log from completing.
+
+### Progressive Automod punishments
+
+Progressive punishments are enabled by default whenever Automod itself is active. The preset deletes every violating message and applies this member-specific ladder:
+
+1. strikes 1–3 create Automod warnings;
+2. strike 4 applies a 15-minute timeout;
+3. the next counted offence within 48 hours after that timeout expires applies a 30-minute timeout;
+4. the next counted offence within the following 48-hour window bans the member.
+
+Every quiet 48-hour period removes one escalation level rather than erasing the complete history. Only one strike can be recorded for a message, even when its content could match several filters. The default escalating rules cover blocked words or phrases, blocked domains, Discord invites, mention spam, message flooding, and repeated messages. Caps, emoji, and new-line checks are delete-only by default; if an administrator explicitly selects them, Homie still sends any kick or ban stage to staff review because those checks have a greater false-positive risk.
+
+The dashboard can edit the warning count, both timeout lengths, final timeout length, escalation window, decay period, final action, eligible rules, manual-warning inclusion, and ban-approval requirement. **Require ban approval** changes the final automatic ban into a logged staff-review case. Manual `/warn` cases remain separate unless **Include manual warnings** is enabled.
+
+Administrators can inspect a member with `/automod strikes view user:` and clear their progressive history with `/automod strikes reset user:`. Every counted step records the rule, strike level, applied action, next action, case number, and any Discord permission failure in Homie's moderation records and configured moderation log.
 
 Join controls include anti-raid thresholds, account-age checks, quarantine, verification roles, and emergency lockdown. Test protection settings with staff before enabling strict actions in a busy server.
 

@@ -8,11 +8,11 @@ The checklist is informational. A server does **not** need to reach 100%, and a 
 
 The percentage describes how much of Homie's available configuration has been filled in:
 
-- **Channel destinations contribute 62%** of the score.
-- **Feature activation contributes 38%** of the score.
+- **Channel destinations contribute most** of the score.
+- **Feature activation contributes the remaining** score.
 - The displayed percentage is rounded to the nearest whole number.
 
-There are 20 channel-destination items and 8 feature-activation items. Reaching 100% means every listed destination has a channel and every listed feature is active. It is not a recommendation to enable everything.
+The dashboard uses the current channel-destination items and feature-activation items supported by Homie. Reaching 100% means every listed destination has a channel and every listed feature is active. It is not a recommendation to enable everything.
 
 For example, a server that does not need creator alerts, forms, tickets, appeals, or modmail should leave those items unconfigured. Its setup percentage will remain below 100%, but the server can still be fully configured for its own needs.
 

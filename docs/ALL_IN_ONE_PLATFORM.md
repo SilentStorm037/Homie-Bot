@@ -1,50 +1,60 @@
 # Homie All-in-One Platform
 
-Homie combines moderation, security, support, community engagement, automation, content publishing, member utilities, analytics, and server administration in one bot. Each server has its own configuration and enabled features.
+Homie combines moderation, protection, logs, support, role management, community engagement, economy games, automation, publishing, music, smart replies, dashboard controls, and privacy tools in one verified Discord bot. Each server keeps its own settings, channels, roles, and enabled features.
 
-## Moderation and security
+## Setup and dashboard
 
-- Unified numbered moderation cases with evidence, reason editing, voiding, expiry, user history, and recent-case views.
-- Warnings, timeouts, temporary bans, bans, soft bans, kicks, bulk cleanup, channel locks, slowmode, and private moderator notes.
-- Automod for wildcard words, mentions, capitals, invites, links/domains, emoji/newline/attachment floods, duplicate messages, and message-rate spam.
-- Anti-raid join windows, minimum account age, quarantine, verification, emergency lockdown, and automatic expiry jobs.
-- Detailed server event and moderator audit logs, including actor attribution where Discord's audit log allows it.
+- `/setup` audits permissions and missing configuration.
+- `/config view` shows saved destinations.
+- `/config set-X-channel` commands connect welcome, leave, logs, starboard, Quote Hall, anonymous posts, suggestions, birthdays, creator alerts, verification, modmail, announcements, updates, games, greetings, and NSFW meme channels.
+- The dashboard gives server owners a visual setup flow, setup health, channel/role management, protection settings, welcome/rewards, support workflows, automation, publishing, and activity history.
 
-Start with `/automod status`, `/security status`, `/cases recent`, and `/config view`.
+## Moderation, protection, and logs
 
-## Support and feedback
+- Warnings, cases, notes, timeouts, kicks, bans, temporary bans, soft bans, message cleanup, slowmode, locks, and mass role kicks.
+- Automod for blocked words, mentions, caps, invites, links/domains, emoji/newline/attachment floods, duplicate messages, and message-rate spam.
+- Progressive Automod strikes and configurable enforcement.
+- Anti-raid detection, quarantine, verification, minimum account age checks, and lockdown.
+- Dedicated user, moderation, message, server, and voice log destinations.
 
-- Private tickets with panels, claiming, participant management, transcripts, logs, limits, and closing reasons.
-- DM-based modmail conversations with persistent staff threads and two-way replies.
-- Suggestions with staff decisions, configurable forms with modal submissions, and moderation appeals.
-- Invite attribution and inviter leaderboards.
+## Roles and member onboarding
 
-Start with `/ticket setup`, `/modmail setup`, `/suggestion channel`, `/form create`, and `/invites leaderboard`.
+- Welcome and leave messages with placeholders, random welcome mode, welcome images, and optional DMs.
+- Immediate and delayed autoroles.
+- Reaction roles, button role panels, managed colour roles, gradient/holographic colour support where Discord allows it, and admin role tools.
+- Verification channel and verified/quarantine role support.
 
-## Community and engagement
+## Support and staff workflows
 
-- Multi-emoji starboard that preserves source images and updates when reactions, messages, or attachments change.
-- Interactive polls, weighted giveaways, role panels, reaction roles, recurring reminders, AFK notices, highlight notifications, custom tags with variables, levels, role rewards, birthdays, achievements, and colour roles.
-- Optional Homie Coins economy with daily rewards, transfers, staff adjustments, and leaderboards.
-- Join-to-create temporary voice rooms and live member/server-stat counter channels.
-- Shared voice music queues with search/URL playback, pause, resume, skip, stop, queue, and volume controls.
+- Tickets with panels, claims, participants, transcripts, and logs.
+- Modmail routed to a staff channel.
+- Suggestions with staff decisions.
+- Modal forms for applications, registration, feedback, or custom submissions.
+- Moderation appeals and feedback commands.
 
-Useful commands include `/poll`, `/giveaway`, `/rolepanel`, `/level`, `/economy`, `/voicehub`, `/music`, `/counter`, `/highlight`, and `/tag`.
+## Community and games
 
-## Publishing and automation
+- Starboard with configured emojis and media preservation.
+- Quote Hall image cards saved with `h! quote`.
+- Anonymous posts and anonymous venting.
+- Polls, giveaways, tags, highlights, invite tracking, birthdays, levels, achievements, and achievement cards.
+- Homie Coins economy with `h! daily`, streaks, shop items, steal, bomb, shield, trap, lockpick, scratch cards, fishing, mining, pets, quests, crates, raffles, and gambling.
+- Memes, ship cards, jokes, facts, 8-ball, compliments, roasts, AFK, avatar lookups, and playful marriage commands.
 
-- Managed messages and embeds can be sent, edited, or scheduled with `/message`.
-- RSS/Atom-compatible subscriptions cover sites that expose feeds, including common YouTube and GitHub feed URLs.
-- Trigger-and-action automations can reply, send messages, react, or add/remove roles.
-- Per-channel automatic message cleanup supports all messages or bot-only output.
-- Server update channels can receive clear, versioned Homie changelogs.
+## Creator alerts, publishing, and automation
 
-## Dashboard, privacy, and integrations
+- Twitch and TikTok account links, server defaults, per-member live messages, role/everyone/creator pings, and test tools.
+- `/message` for sending, editing, and scheduling messages or embeds.
+- `/announce` and `/update` for configured announcement/update destinations.
+- RSS/Atom feeds, cleanup rules, server counters, temporary voice hubs, and trigger/action automations.
+- Music playback with queue controls, repeat, shuffle, volume, and stop.
 
-- Discord sign-in only shows servers where a user has Manage Server or Administrator.
-- The dashboard automatically adapts to desktop and mobile layouts and includes guided setup, contextual help, navigation search, dark/light themes, and unsaved-change protection.
-- Administrators can manage configuration, support workflows, community systems, automations, publishing, audit history, and API credentials without memorising commands.
-- Dashboard changes are validated and recorded in activity history.
-- `/apikey` creates revocable, single-server, read-only integration credentials with selected scopes.
-- `/privacy export` downloads a user's server data. `/privacy delete confirm:DELETE` deletes optional data and pseudonymizes records retained for moderation integrity.
-- Reminders, giveaways, scheduled messages, poll closures, moderation expiries, delayed roles, and cleanup tasks continue across bot restarts.
+## Smart replies, privacy, and integrations
+
+- Smart replies can be limited by mode, channel allowlist, cooldown, personality, and engine.
+- Homie only responds to messages that start with Homie or mention Homie when configured for mention-style replies.
+- Optional smart memory can store explicit member, server, and channel context with view/clear controls.
+- `/privacy export`, `/privacy delete`, and retention settings help manage stored data.
+- `/apikey` creates revocable read-only integration keys scoped to one server.
+
+Start with the [Public Server Setup Guide](PUBLIC_SERVER_SETUP_GUIDE.md), then use the [Feature Setup Playbook](FEATURE_SETUP_PLAYBOOK.md) and [Command Reference](COMMAND_REFERENCE.md) as needed.

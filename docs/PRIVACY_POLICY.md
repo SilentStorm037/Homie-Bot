@@ -59,11 +59,11 @@ Homie stores birthday dates, optional birth years, privacy settings, and celebra
 
 Homie stores linked Twitch/TikTok usernames and optional custom live notification messages/images.
 
-### Anonymous Venting
+### Anonymous Venting And Posts
 
-Homie posts anonymous vent submissions to the configured vent channel. The anonymous vent post does not include the submitter's identity.
+Homie posts anonymous vent submissions and anonymous post submissions to the configured server channels. The public anonymous message does not include the submitter's identity.
 
-Discord still sends interaction data to the bot at runtime so the command can function, but Homie is designed not to include the submitter in the vent message.
+Discord still sends interaction data to the bot at runtime so the command can function. Anonymous posts keep a staff-only audit trace containing the submitter, message reference, and submitted content so server staff can investigate rule, safety, or legal breaches. Homie is designed not to include the submitter in the public anonymous message.
 
 ### Reminders And Giveaways
 

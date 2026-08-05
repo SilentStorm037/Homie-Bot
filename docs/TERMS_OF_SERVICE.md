@@ -48,15 +48,15 @@ These features should only be used by authorized server staff. Server owners are
 
 Homie may act based on the configuration set by server administrators, including deleting messages, logging moderation events, assigning roles, or restricting users.
 
-## 5. Anonymous Venting
+## 5. Anonymous Venting And Posts
 
-Homie may offer anonymous venting if enabled by a server.
+Homie may offer anonymous venting and anonymous posting if enabled by a server.
 
-Anonymous vents are posted without showing the submitter's name in the vent channel. Homie is designed not to include or reveal the submitter in the anonymous post.
+Anonymous vents and anonymous posts are published without showing the submitter's name in the destination channel. Homie is designed not to include or reveal the submitter in the public anonymous post.
 
-However, users should understand that Discord still sends command interaction data to the bot at runtime so the command can function. Server owners should not present anonymous venting as a replacement for emergency support, professional help, or legal confidentiality.
+However, users should understand that Discord still sends command interaction data to the bot at runtime so the command can function. Anonymous posts keep a staff-only trace so server staff can investigate rule, safety, or legal breaches. Server owners should not present anonymous venting or anonymous posting as a replacement for emergency support, professional help, or legal confidentiality.
 
-Anonymous venting must not be used to abuse, threaten, harass, dox, or target others.
+Anonymous venting and anonymous posting must not be used to abuse, threaten, harass, dox, or target others.
 
 ## 6. Data And Storage
 

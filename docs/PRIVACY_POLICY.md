@@ -1,6 +1,6 @@
 # Homie Bot Privacy Policy
 
-Last updated: 17 July 2026
+Last updated: 15 August 2026
 
 This Privacy Policy explains what data Homie may collect, store, and use when the bot is added to a Discord server or when users interact with Homie commands.
 
@@ -8,7 +8,7 @@ By using Homie, you understand that the bot processes certain Discord data in or
 
 ## 1. What Homie Is
 
-Homie is a verified public Discord community bot that provides features such as moderation, welcome messages, achievements, birthdays, leveling, colour roles, reminders, giveaways, Twitch/TikTok live alerts, anonymous venting, starboard, smart replies, and server configuration tools.
+Homie is a verified public Discord community bot that provides features such as moderation, welcome messages, achievements, birthdays, leveling, colour roles, reminders, giveaways, Twitch, TikTok, and YouTube live alerts, anonymous venting, starboard, smart replies, and server configuration tools.
 
 ## 2. Data Homie May Process
 
@@ -31,9 +31,9 @@ Homie may process Discord data that is needed for enabled features, including:
 - reminder text
 - giveaway data
 - reaction role bindings
-- Twitch/TikTok usernames linked by users or admins
+- Twitch, TikTok, and YouTube creator identifiers linked by users or admins
 - configured welcome, leave, live alert, and notification messages
-- ticket, modmail, form, suggestion, appeal, poll, economy, AFK, highlight, feed, and automation data when those features are used
+- ticket, modmail, form, suggestion, appeal, poll, economy, AFK, highlight, and automation data when those features are used
 
 Homie only stores data needed to provide bot functionality.
 
@@ -55,9 +55,9 @@ Homie stores achievement progress, unlocked achievements, XP totals, message act
 
 Homie stores birthday dates, optional birth years, privacy settings, and celebration history for the birthday system.
 
-### Twitch And TikTok Alerts
+### Creator Live Alerts
 
-Homie stores linked Twitch/TikTok usernames and optional custom live notification messages/images.
+Homie stores linked Twitch usernames, TikTok usernames, YouTube channel IDs or handles, optional direct YouTube live URL fallbacks, and optional custom live notification messages/images.
 
 ### Anonymous Venting And Posts
 
@@ -112,6 +112,7 @@ Homie may interact with third-party services where required for features, such a
 - Discord
 - Twitch
 - TikTok
+- YouTube/Google APIs
 - hosting providers
 
 Data may also be visible to server staff or members depending on how a server configures channels, logs, embeds, and public features.
@@ -132,6 +133,7 @@ Examples:
 - birthdays can be removed with `/birthday remove`
 - Twitch links can be removed with `/twitchunlink`
 - TikTok links can be removed with `/tiktokunlink`
+- YouTube links can be removed with `/youtubeunlink`
 - reminders can be cancelled with `/remind cancel`
 - users can download their server-specific data with `/privacy export`
 - users can delete optional stored data with `/privacy delete confirm:DELETE`; moderation-integrity records are pseudonymized and stripped of stored evidence/transcript content

@@ -1,4 +1,4 @@
-# Homie Public Server Setup Guide
+﻿# Homie Public Server Setup Guide
 
 This is the step-by-step setup guide for server owners and administrators using the public Homie bot. It follows the same order a new server should normally use: install, check permissions, connect destinations, enable safety, then switch on community features.
 
@@ -80,7 +80,10 @@ Community feature destinations:
 /config set-nsfw-channel channel:#nsfw-memes
 /config set-twitch-channel channel:#live-now
 /config set-tiktok-channel channel:#live-now
+/youtubeconfig channel channel:#live-now
 ```
+
+Most channel destinations use `/config set-X-channel`. YouTube live notifications use `/youtubeconfig channel` because YouTube has dedicated link, default-message, status, reset, and test commands.
 
 ## 4. Create and route logs
 
@@ -257,9 +260,11 @@ Use `h! quote` while replying to the member message you want saved.
 ## 12. Configure Homie Coins, games, memes, ship, and fun
 
 Economy and games are prefix-based. Both `h!` and `!h` work.
+Daily rewards are claimable once per UTC day, while the visible cooldown counts down until the next available claim.
 
 ```text
 h! daily
+h! weekly
 h! moneybag
 h! pay @Member 250
 h! richest
@@ -289,7 +294,7 @@ h! gamble 25%
 h! gamble all
 ```
 
-Steal has a 25% base success chance, a 5-minute cooldown, and 3 attempts per user per day resetting at midnight GMT. Fishing and mining each have a 30-minute cooldown and 3 uses per user per server per day.
+Daily rewards reset once per UTC day. Weekly rewards give a larger random Homie Coin bonus, show cooldowns as days, hours, minutes, and seconds, and can occasionally include a bonus item. Steal has a 25% base success chance, a 5-minute cooldown, and 3 attempts per user per UTC day. Fishing and mining each have a 30-minute cooldown and 3 uses per user per server per day.
 
 Fun and social commands:
 
@@ -319,12 +324,21 @@ NSFW meme categories only work in Discord NSFW channels or channels explicitly a
 
 ## 13. Configure creator alerts
 
+Creator alerts support Twitch, TikTok, and YouTube. The dashboard **Connections** page shows each platform in its own tab.
+
+Twitch:
+
 ```text
 /config set-twitch-channel channel:#live-now
 /twitchdefault set message:{username} is live! {url} ping:role role:@Live Ping
 /twitchlink username:creatorname
 /twitchmessage set message:{username} is live! {url}
 /twitch test channel:#live-now
+```
+
+TikTok:
+
+```text
 /config set-tiktok-channel channel:#live-now
 /tiktokdefault set message:{username} is live! {url} ping:role role:@Live Ping
 /tiktoklink username:creatorname
@@ -332,7 +346,19 @@ NSFW meme categories only work in Discord NSFW channels or channels explicitly a
 /tiktokdefault test user:@Member channel:#live-now
 ```
 
-## 14. Configure publishing, automation, counters, feeds, voice hubs, and music
+YouTube:
+
+```text
+/youtubeconfig channel channel:#live-now
+/youtubedefault set message:{username} is live! {url} ping:role role:@Live Ping
+/youtubelink channel:@creatorhandle
+/youtubemessage set message:{username} is live! {url}
+/youtubedefault test user:@Member channel:#live-now
+```
+
+YouTube live alerts require a YouTube Data API v3 key in `.env` as `YOUTUBE_API_KEY`. Handles can be entered with or without `@`; direct live/watch URLs can be used as fallbacks from the dashboard.
+
+## 14. Configure publishing, automation, counters, voice hubs, and music
 
 ```text
 /say channel:#general message:Hello everyone
@@ -341,7 +367,6 @@ NSFW meme categories only work in Discord NSFW channels or channels explicitly a
 /message send channel:#announcements title:Event description:Tonight at 8 colour:#5865F2
 /message edit channel:#announcements message_id:MESSAGE_ID content:Updated text
 /message schedule channel:#announcements in:2h title:Reminder description:Event soon
-/feed add name:news url:https://example.com/feed channel:#feeds
 /automation create name:rules phrase:rules action:reply message:Read #rules
 /cleanup set channel:#bot-spam after_seconds:3600 bots_only:true
 /counter setup channel:VoiceChannel type:members name:Members: {count}
@@ -399,3 +424,4 @@ Memory controls:
 7. Smart replies are limited to mentions or approved channels if enabled.
 8. Staff know where logs and cases are stored.
 9. Members receive a short announcement explaining the features they can use.
+

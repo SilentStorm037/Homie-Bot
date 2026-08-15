@@ -6,7 +6,7 @@ Homie combines moderation, protection, logs, support, role management, community
 
 - `/setup` audits permissions and missing configuration.
 - `/config view` shows saved destinations.
-- `/config set-X-channel` commands connect welcome, leave, logs, starboard, Quote Hall, anonymous posts, suggestions, birthdays, creator alerts, verification, modmail, announcements, updates, games, greetings, and NSFW meme channels.
+- `/config set-X-channel` commands connect welcome, leave, logs, starboard, Quote Hall, anonymous posts, suggestions, birthdays, Twitch and TikTok creator alerts, verification, modmail, announcements, updates, games, greetings, and NSFW meme channels. YouTube live alerts use `/youtubeconfig channel`.
 - The dashboard gives server owners a visual setup flow, setup health, channel/role management, protection settings, welcome/rewards, support workflows, automation, publishing, and activity history.
 
 ## Moderation, protection, and logs
@@ -38,15 +38,15 @@ Homie combines moderation, protection, logs, support, role management, community
 - Quote Hall image cards saved with `h! quote`.
 - Anonymous posts and anonymous venting.
 - Polls, giveaways, tags, highlights, invite tracking, birthdays, levels, achievements, and achievement cards.
-- Homie Coins economy with `h! daily`, streaks, shop items, steal, bomb, shield, trap, lockpick, scratch cards, fishing, mining, pets, quests, crates, raffles, and gambling.
+- Homie Coins economy with `h! daily`, `h! weekly`, streaks, occasional bonus items, shop items, steal, bomb, shield, trap, lockpick, scratch cards, fishing, mining, pets, quests, crates, raffles, and gambling.
 - Memes, ship cards, jokes, facts, 8-ball, compliments, roasts, AFK, avatar lookups, and playful marriage commands.
 
 ## Creator alerts, publishing, and automation
 
-- Twitch and TikTok account links, server defaults, per-member live messages, role/everyone/creator pings, and test tools.
+- Twitch, TikTok, and YouTube account links, server defaults, per-member live messages, role/everyone/creator pings, dashboard tabs, and test tools.
 - `/message` for sending, editing, and scheduling messages or embeds.
 - `/announce` and `/update` for configured announcement/update destinations.
-- RSS/Atom feeds, cleanup rules, server counters, temporary voice hubs, and trigger/action automations.
+- Cleanup rules, server counters, temporary voice hubs, and trigger/action automations.
 - Music playback with queue controls, repeat, shuffle, volume, and stop.
 
 ## Smart replies, privacy, and integrations

@@ -62,7 +62,7 @@ If Discord interrupts setup or removal, the tracked blueprint remains available 
 | Protection | Automod, blocked content, spam limits, anti-raid behavior, quarantine, verification, and lockdown |
 | Welcome & rewards | Greetings, starboard, levelling, achievements, birthdays, colours, and economy |
 | Smart replies | Reply modes, personality, cooldowns, allowed channels, taught replies, and memory controls |
-| Connections | Twitch, TikTok, feeds, counters, and external content sources |
+| Connections | Twitch, YouTube, and TikTok live notification settings |
 | Advanced settings | Searchable access to detailed server configuration |
 | Member support | Tickets, modmail, suggestions, forms, and appeals |
 | Automation | Reaction roles, role panels, polls, cleanup, voice hubs, sticky content, and workflows |

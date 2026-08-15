@@ -1,8 +1,8 @@
-# Homie Command Reference
+﻿# Homie Command Reference
 
 This page reflects the current Homie command set. Slash commands are mainly used for setup, moderation, administration, and structured workflows. Fun, economy, meme, Quote Hall, ship, and marriage commands are prefix commands so the slash list stays focused.
 
-Homie listens to both `h!` and `!h` for prefix commands. Examples below use `h!`.
+Homie listens to `h!`, `!h`, and direct `!command` aliases for prefix commands. Examples below use `h!`.
 
 ## Recommended setup order
 
@@ -20,19 +20,21 @@ Homie listens to both `h!` and `!h` for prefix commands. Examples below use `h!`
 
 | Command | What it does |
 | --- | --- |
-| `h! daily` / `!h daily` | Claim daily Homie Coins and keep a visible streak. |
+| `h! daily` / `!h daily` | Claim daily Homie Coins once per UTC day and keep a visible streak. |
+| `h! weekly` / `!weekly` | Claim a larger weekly Homie Coin bonus with an occasional random item drop. Cooldowns display as days, hours, minutes, and seconds. |
 | `h! moneybag [@user]` | Check your own or another member balance. |
 | `h! pay @user amount` | Transfer Homie Coins to another member. |
 | `h! richest` | Show the Homie Coin leaderboard. |
 | `h! mint @user amount reason` | Manage Server: add or remove coins manually. |
 | `h! gamble all` / `h! gamble 250` / `h! gamble 25%` | Gamble coins with normal wins and a rare jackpot. |
 | `h! shop` | Show the game shop. |
-| `h! buy item [quantity]` | Buy shop items. |
+| `h! buy item [quantity]` | Buy shop items. Multi-word items can use spaces, for example `h! buy epic crate`. |
+| `h! item help` | Show item usage, buying instructions, and aliases. Examples: `h! trap help`, `h! fishing rod help`, `h! epic crate help`. |
 | `h! bag` / `h! inventory` | Show owned items and active effects. |
 | `h! shield` | Activate a shield that blocks one steal or bomb. |
 | `h! trap` | Activate a trap against the next steal attempt. |
 | `h! lockpick` | Activate a one-use steal chance bonus. |
-| `h! steal @user` | Attempt to steal coins. Base chance is 25%, cooldown is 5 minutes, and the daily limit is 3 attempts resetting at midnight GMT. |
+| `h! steal @user` | Attempt to steal coins. Base chance is 25%, cooldown is 5 minutes, and the daily limit is 3 attempts per UTC day. |
 | `h! bomb @user` | Start the wire-cutting bomb game against an active member. |
 | `h! raffle winners duration [prize] [each|split]` | Manage Messages: start a Homie Coin raffle. |
 | `h! join` | Join the currently open raffle. |
@@ -63,6 +65,33 @@ Homie listens to both `h!` and `!h` for prefix commands. Examples below use `h!`
 | `h! marry @user` | Send a marriage proposal. |
 | `h! divorce [@user]` | End a saved marriage. |
 | `h! marriagecheck [@user]` | Check marriage status. |
+
+## Prefix aliases
+
+All action prefix commands also work as direct bang aliases, for example `!daily`, `!weekly`, `!steal @user`, `!fish`, `!mine`, `!crate epic`, and `!ship @member`.
+
+| Normal command | Extra aliases |
+| --- | --- |
+| `h! 3amthoughts` | `h! 3am`, `h! 3am thoughts`, `!3amthoughts` |
+| `h! 8ball` | `h! 8 ball`, `!8ball` |
+| `h! dadjoke` | `h! dadjokes`, `h! dad joke`, `!dadjoke` |
+| `h! funfacts` | `h! fun fact`, `h! fun facts`, `!funfacts` |
+| `h! avatarget` | `h! avatar`, `h! ava`, `!avatarget` |
+| `h! addnickname` | `h! nickname`, `h! nick`, `!addnickname` |
+| `h! moneybag` | `h! balance`, `h! bal`, `h! coins`, `h! wallet`, `!moneybag` |
+| `h! richest` | `h! leaderboard`, `h! leader board`, `h! lb`, `h! rich list`, `!richest` |
+| `h! marriagecheck` | `h! marriage check`, `h! marriage`, `!marriagecheck` |
+| `h! scratch` | `h! scratch card`, `!scratch` |
+| `h! fish` | `h! fishing rod`, `h! fish rod`, `h! rod`, `!fish` |
+| `h! mine` | `h! mining pickaxe`, `h! mining pickax`, `h! pickaxe`, `h! pickax`, `!mine` |
+| `h! hatch` | `h! pet egg`, `h! egg`, `!hatch` |
+| `h! getquest` | `h! get quest`, `h! quest scroll`, `!getquest` |
+| `h! startquest` | `h! start quest`, `!startquest` |
+| `h! timeskip` | `h! time skip`, `!timeskip` |
+| `h! crate common` | `h! common crate`, `h! crate common`, `!crate common` |
+| `h! crate rare` | `h! rare crate`, `h! crate rare`, `!crate rare` |
+| `h! crate epic` | `h! epic crate`, `h! crate epic`, `!crate epic` |
+| `h! crate cursed` | `h! cursed crate`, `h! crate cursed`, `!crate cursed` |
 
 ## Slash commands by setup area
 
@@ -322,18 +351,33 @@ Homie listens to both `h!` and `!h` for prefix commands. Examples below use `h!`
 | `/tiktokunlink` | Remove your linked TikTok account | - |
 | `/twitch test` | Send a one-off test Twitch live notification | `channel:CHANNEL` |
 | `/twitchcheck` | Check Twitch link for a user (or yourself) | - |
+| `/youtubedefault clear` | Reset the default YouTube live notification message | - |
+| `/youtubedefault reset-live` | Clear YouTube already-live state so the next live check can notify again | `user:USER` |
+| `/youtubedefault set` | Set the default YouTube live notification message | `message:STRING*, ping:STRING*, role:ROLE` |
+| `/youtubedefault status` | Check YouTube live detection and stored live state | `user:USER` |
+| `/youtubedefault test` | Send a test YouTube notification using the saved default/custom message | `user:USER, channel:CHANNEL` |
+| `/youtubedefault view` | View the current default YouTube live notification message | - |
+| `/youtubelink` | Link your YouTube channel | `channel:STRING*` |
+| `/youtubeunlink` | Remove your linked YouTube channel | - |
+| `/youtubecheck` | Check YouTube link for a user | `user:USER` |
+| `/youtubeconfig channel` | Set the default YouTube live alert channel | `channel:CHANNEL*` |
+| `/youtubemessage remove` | Remove custom YouTube message | - |
+| `/youtubemessage set` | Set custom YouTube live message | `message:STRING*, image:ATTACHMENT` |
+| `/youtubemessage view` | View your custom YouTube live message | - |
+| `/youtubeset` | Admin: set YouTube link for a user | `user:USER*, channel:STRING*` |
+| `/youtuberemove` | Admin: remove a user YouTube link | `user:USER*` |
 | `/twitchdefault clear` | Reset the default Twitch live notification message | - |
 | `/twitchdefault set` | Set the default Twitch live notification message | `message:STRING*, ping:STRING*, role:ROLE` |
 | `/twitchdefault view` | View the current default Twitch live notification message | - |
 | `/twitchlink` | Link your Twitch account | - |
 | `/twitchmessage remove` | Remove custom Twitch message | - |
-| `/twitchmessage set` | Set custom Twitch live message | `message:STRING*, image:11` |
+| `/twitchmessage set` | Set custom Twitch live message | `message:STRING*, image:ATTACHMENT` |
 | `/twitchmessage view` | View your custom Twitch live message | - |
 | `/twitchremove` | Admin: remove a user Twitch link | - |
 | `/twitchset` | Admin: set Twitch link for a user | - |
 | `/twitchunlink` | Remove your linked Twitch account | - |
 
-## 11 Publishing, automation, counters, feeds, cleanup, and voice hubs
+## 11 Publishing, automation, counters, cleanup, and voice hubs
 
 | Command | What it does | Main inputs |
 | --- | --- | --- |
@@ -347,9 +391,6 @@ Homie listens to both `h!` and `!h` for prefix commands. Examples below use `h!`
 | `/counter list` | List counter channels | - |
 | `/counter remove` | Stop updating a counter channel | `channel:CHANNEL*` |
 | `/counter setup` | Use a voice channel as a live counter | `channel:CHANNEL*, type:STRING*, name:STRING*` |
-| `/feed add` | Add or update a feed | `name:STRING*, url:STRING*, channel:CHANNEL*` |
-| `/feed list` | List configured feeds | - |
-| `/feed remove` | Remove a feed | `name:STRING*` |
 | `/feedback bad` | Report a bad bot reply | `note:STRING*` |
 | `/feedback good` | Mark the bot as helpful | `note:STRING` |
 | `/feedback list` | Admin: list recent feedback | - |
@@ -435,3 +476,4 @@ These are registered privately for the home/support server when configured.
 - If Homie cannot assign, remove, or move a role, move Homie's highest role above that role and confirm the command user can manage it too.
 - If a feature does not post, run `/config view`, confirm the destination channel still exists, and check Homie can view and send messages there.
 - If a prefix command does not respond, use `h! command` or `!h command` with a space after the prefix, and confirm the feature is allowed in that server/channel.
+

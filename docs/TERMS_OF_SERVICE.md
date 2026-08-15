@@ -70,7 +70,7 @@ Homie may store server configuration and feature data needed for the bot to work
 - achievement progress
 - XP and level data
 - colour role selections
-- Twitch/TikTok links
+- Twitch, TikTok, and YouTube creator links
 - reminder and giveaway data
 - reaction role bindings
 - anonymous vent configuration
@@ -81,7 +81,7 @@ Server owners may request removal of server-related bot data through the officia
 
 ## 7. Third-Party Services
 
-Homie may interact with third-party services such as Discord, Twitch, TikTok, and hosting providers.
+Homie may interact with third-party services such as Discord, Twitch, TikTok, YouTube/Google APIs, and hosting providers.
 
 Availability of live notifications, embeds, previews, and metadata may depend on those third-party services. Homie is not responsible for outages, API changes, missing metadata, or platform restrictions from third parties.
 

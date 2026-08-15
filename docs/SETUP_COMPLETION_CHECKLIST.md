@@ -44,6 +44,7 @@ Channel destinations tell Homie where a particular type of message or workflow b
 | --- | --- | --- |
 | Twitch live alerts | Twitch stream notifications | Yes |
 | TikTok live alerts | TikTok live notifications | Yes |
+| YouTube live alerts | YouTube go-live notifications | Yes |
 | Greetings | General greeting messages | Yes |
 | Announcements | Server-wide announcements sent through Homie | Yes |
 | Homie updates | Public Homie release notes and feature updates | Yes |

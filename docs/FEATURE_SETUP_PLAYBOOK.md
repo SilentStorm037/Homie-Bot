@@ -11,7 +11,7 @@ This playbook groups Homie by setup area. Use it when you already know which fea
 5. **Members:** configure welcome, leave, autoroles, verification, roles, and colour roles.
 6. **Community:** configure starboard, reaction roles, role panels, birthdays, levels, achievements, Quote Hall, anonymous posts, and economy games.
 7. **Support:** configure tickets, modmail, forms, suggestions, and appeals.
-8. **Automation:** configure feeds, counters, cleanup, scheduled messages, voice hubs, and smart replies.
+8. **Automation:** configure counters, cleanup, scheduled messages, voice hubs, and smart replies.
 
 ## Channel setup commands
 
@@ -102,12 +102,13 @@ Use `/reactionrole add` when roles should be attached to reactions on an existin
 - Birthdays: `/config set-birthday-channel`, `/birthdayconfig toggle`, `/birthday set`.
 - Levels: `/serverconfig leveling`, `/level reward-add`, `/level leaderboard`.
 - Achievements: `/config set-achievements-channel`, `/achievementconfig toggle`, `/achievements view`.
-- Economy and games: `h! daily`, `h! shop`, `h! buy`, `h! steal`, `h! bomb`, `h! fish`, `h! mine`, `h! quest`.
+- Creator alerts: `/config set-twitch-channel`, `/config set-tiktok-channel`, `/youtubeconfig channel`, then link creators with `/twitchlink`, `/tiktoklink`, or `/youtubelink`.
+- Economy and games: `h! daily`, `h! weekly`, `h! shop`, `h! buy`, `h! steal`, `h! bomb`, `h! fish`, `h! mine`, `h! quest`.
 - Memes and fun: `h! meme`, `h! ship`, `h! joke`, `h! 8ball`, `h! compliment`, `h! roast`.
 
 ## Automation and publishing
 
-Use `/message send`, `/message schedule`, `/message edit`, `/announce`, `/update`, `/feed add`, `/automation create`, `/cleanup set`, `/counter setup`, and `/voicehub setup`.
+Use `/message send`, `/message schedule`, `/message edit`, `/announce`, `/update`, `/automation create`, `/cleanup set`, `/counter setup`, and `/voicehub setup`.
 
 ## Smart replies
 

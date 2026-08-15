@@ -17,9 +17,9 @@ Homie is a verified multi-server Discord bot designed to replace a pile of separ
 | Roles | Autoroles, delayed roles, reaction roles, role panels, colour roles, managed role creation/removal, and nickname tools. |
 | Welcome and leave | Welcome channels, leave channels, random welcome messages, welcome images, welcome DMs, and placeholders. |
 | Community | Starboard, Quote Hall image cards, anonymous posts, venting, polls, giveaways, birthdays, highlights, tags, and invites. |
-| Economy games | Daily coins, streaks, shop items, steal, bomb, shield, trap, scratch cards, fishing, mining, pets, quests, crates, raffles, and gambling. |
-| Creator alerts | Twitch and TikTok links, default live messages, custom creator messages, ping choices, and test tools. |
-| Automation | Scheduled messages, feeds, cleanup rules, counters, temporary voice hubs, and trigger/action automations. |
+| Economy games | Daily and weekly coins, streaks, occasional bonus items, shop items, steal, bomb, shield, trap, scratch cards, fishing, mining, pets, quests, crates, raffles, and gambling. |
+| Creator alerts | Twitch, TikTok, and YouTube links, default live messages, custom creator messages, ping choices, and test tools. |
+| Automation | Scheduled messages, cleanup rules, counters, temporary voice hubs, and trigger/action automations. |
 | Music | Shared voice queue, search/URL playback, queue controls, repeat, shuffle, and volume. |
 | Smart replies | Mention-aware smart replies, channel allowlists, cooldowns, personalities, taught replies, and optional memory controls. |
 | Privacy and platform | Data export/deletion, retention settings, read-only API keys, dashboard audit history, and localisation. |
@@ -47,9 +47,14 @@ The full step-by-step walkthrough is in [docs/PUBLIC_SERVER_SETUP_GUIDE.md](docs
 /config set-leave-channel channel:#goodbye
 /config set-mod-log-channel channel:#mod-logs
 /config set-starboard-channel channel:#starboard
+/config set-twitch-channel channel:#live-now
+/config set-tiktok-channel channel:#live-now
+/youtubeconfig channel channel:#live-now
 /automod status
 /security status
 ```
+
+Most saved destinations use the `/config set-X-channel` format. YouTube live alerts currently use `/youtubeconfig channel` because the YouTube live system has its own dedicated configuration commands.
 
 ## Prefix commands
 
@@ -67,6 +72,7 @@ h! meme
 h! quote
 h! ship @Member
 h! daily
+h! weekly
 h! shop
 h! moneybag
 h! richest

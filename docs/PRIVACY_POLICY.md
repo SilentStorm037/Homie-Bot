@@ -144,7 +144,7 @@ Server owners may request removal of server-related Homie data.
 
 Users may request removal of personal bot data where reasonably possible.
 
-To request data removal, use the official Homie Support Server: https://discord.gg/RjuSrGXHSa
+To request data removal, use the official Homie Support Server: https://discord.gg/QDG3drwfJF
 
 ## 9. Security
 
@@ -166,4 +166,4 @@ The latest version should be made available through the bot listing, dashboard, 
 
 ## 12. Contact
 
-For privacy questions, support, or data removal requests, use the official Homie Support Server: https://discord.gg/RjuSrGXHSa
+For privacy questions, support, or data removal requests, use the official Homie Support Server: https://discord.gg/QDG3drwfJF

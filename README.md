@@ -4,7 +4,7 @@
 
 Homie is a verified multi-server Discord bot designed to replace a pile of separate moderation and community bots. Server owners can configure it with slash commands or the dashboard, while members get simple prefix commands for fun, coins, memes, Quote Hall, ship cards, and utility tools.
 
-[Add Homie to Discord](https://discord.com/oauth2/authorize?client_id=1492673658567524353&permissions=8&integration_type=0&scope=bot+applications.commands) - [Join the support server](https://discord.gg/RjuSrGXHSa) - [Setup guide](docs/PUBLIC_SERVER_SETUP_GUIDE.md) - [Feature playbook](docs/FEATURE_SETUP_PLAYBOOK.md) - [Command reference](docs/COMMAND_REFERENCE.md)
+[Add Homie to Discord](https://discord.com/oauth2/authorize?client_id=1492673658567524353&permissions=8&integration_type=0&scope=bot+applications.commands) - [Join the support server](https://discord.gg/QDG3drwfJF) - [Setup guide](docs/PUBLIC_SERVER_SETUP_GUIDE.md) - [Feature playbook](docs/FEATURE_SETUP_PLAYBOOK.md) - [Command reference](docs/COMMAND_REFERENCE.md)
 
 ## What Homie does
 
@@ -100,4 +100,4 @@ See the [Command Reference](docs/COMMAND_REFERENCE.md) for the complete current 
 
 ## Support
 
-For setup questions, troubleshooting, bug reports, or feature help, join the [Homie support server](https://discord.gg/RjuSrGXHSa).
+For setup questions, troubleshooting, bug reports, or feature help, join the [Homie support server](https://discord.gg/QDG3drwfJF).

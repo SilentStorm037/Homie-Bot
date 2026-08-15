@@ -258,4 +258,4 @@ Refresh the page and reopen it in the current browser. The dashboard selects its
 - [Command Reference](../docs/COMMAND_REFERENCE.md)
 - [Privacy Policy](../docs/PRIVACY_POLICY.md)
 - [Terms of Service](../docs/TERMS_OF_SERVICE.md)
-- [Homie support server](https://discord.gg/RjuSrGXHSa)
+- [Homie support server](https://discord.gg/QDG3drwfJF)

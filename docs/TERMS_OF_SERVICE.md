@@ -77,7 +77,7 @@ Homie may store server configuration and feature data needed for the bot to work
 
 Homie only stores data needed for enabled bot features.
 
-Server owners may request removal of server-related bot data through the official Homie Support Server: https://discord.gg/RjuSrGXHSa
+Server owners may request removal of server-related bot data through the official Homie Support Server: https://discord.gg/QDG3drwfJF
 
 ## 7. Third-Party Services
 
@@ -117,4 +117,4 @@ Server owners and administrators are responsible for how Homie is configured and
 
 ## 12. Contact
 
-For questions, support, data removal requests, or concerns about Homie, use the official Homie Support Server: https://discord.gg/RjuSrGXHSa
+For questions, support, data removal requests, or concerns about Homie, use the official Homie Support Server: https://discord.gg/QDG3drwfJF
